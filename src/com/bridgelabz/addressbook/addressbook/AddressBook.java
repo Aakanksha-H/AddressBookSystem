@@ -43,4 +43,68 @@ public class AddressBook {
 
         infoArrayList.add(user1);
     }
+
+    public void editContact() {
+        UserContactInfo contactInfo = new UserContactInfo();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter name of contact you want to edit : ");
+        String firstName = scanner.next();
+        if (firstName.equals(user1.getFirstName())) {
+            user1 = contactInfo;
+        } else {
+            System.out.println("No contact found");
+            System.out.println("Add the contact if need press 1 or 0 to stop");
+            if (scanner.nextInt() == 1) {
+                addContact();
+                editContact();
+            } else if (scanner.nextInt() == 0) {
+                return;
+            }
+            return;
+        }
+        System.out.println("Enter value of data you want to edit. 1:Name 2:Last Name 3:Locality 4:City 5:State 6:Email 7:Zip 8:Mobile");
+        int option = scanner.nextInt();
+
+        switch (option) {
+            case 1:
+                System.out.print("Enter new name: ");
+                contactInfo.setFirstName(scanner.next());
+                break;
+
+            case 2:
+                System.out.print("Enter new last name: ");
+                contactInfo.setLastName(scanner.next());
+                break;
+
+            case 3:
+                System.out.print("Enter new  locality name: ");
+                contactInfo.setLocality(scanner.next());
+                break;
+
+            case 4:
+                System.out.print("Enter new city name: ");
+                contactInfo.setCity(scanner.next());
+                break;
+
+            case 5:
+                System.out.print("Enter new state name: ");
+                contactInfo.setState(scanner.next());
+                break;
+
+            case 6:
+                System.out.print("Enter new email: ");
+                contactInfo.setEmail(scanner.next());
+                break;
+
+            case 7:
+                System.out.print("Enter new zip: ");
+                contactInfo.setZip(scanner.nextInt());
+                break;
+
+            case 8:
+                System.out.print("Enter new mobile number: ");
+                contactInfo.setNumber(scanner.nextLong());
+                break;
+        }
+    }
 }
