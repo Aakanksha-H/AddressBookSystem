@@ -105,6 +105,26 @@ public class AddressBook {
                 System.out.print("Enter new mobile number: ");
                 contactInfo.setNumber(scanner.nextLong());
                 break;
+            //}
+        }
+    }
+
+    public void deleteContact() {
+        System.out.println("Name the contact you want to delete = ");
+        Scanner scanner = new Scanner(System.in);
+        String firstName1 = scanner.next();
+        if (firstName1.equals(user1.getFirstName())) {
+            infoArrayList.remove(user1);
+            System.out.println("Contact deleted");
+        } else {
+            System.out.println("No contact found");
+            System.out.println("Add the contact if need press 1 or 0 to stop");
+            if (scanner.nextInt() == 1) {
+                addContact();
+                deleteContact();
+            } else if (scanner.nextInt() == 0) {
+                return;
+            }
         }
     }
 }
